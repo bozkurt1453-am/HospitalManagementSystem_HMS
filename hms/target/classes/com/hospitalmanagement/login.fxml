@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospitalmanagement.LoginController">
+   <children>
+      <!-- Header with Logo and Title -->
+      <VBox alignment="CENTER" spacing="20" style="-fx-background-color: white; -fx-padding: 30;">
+         <children>
+            <!-- Logo Container -->
+            <VBox alignment="CENTER" spacing="10">
+               <children>
+                  <!-- User Avatar Icon -->
+                  <VBox alignment="CENTER" maxHeight="250.0" maxWidth="250.0" minHeight="100.0" minWidth="100.0">
+                     <children>
+                        <ImageView fx:id="logoImageView" fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@alplogo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+
+      <!-- Login Form -->
+      <VBox alignment="CENTER" spacing="25" styleClass="card" >
+         <children>
+            <!-- Username Field -->
+            <VBox spacing="5">
+               <children>
+                  <Label styleClass="label" text="E-posta" />
+                  <TextField fx:id="usernameField" prefHeight="45.0" styleClass="input-field" promptText="E-posta adresinizi giriniz" />
+               </children>
+            </VBox>
+
+            <!-- Password Field -->
+            <VBox spacing="5">
+               <children>
+                  <Label styleClass="label" text="Şifre" />
+                  <StackPane>
+                     <children>
+                        <TextField fx:id="passwordTextField" prefHeight="45.0" styleClass="input-field" promptText="Şifrenizi giriniz" visible="false" />
+                        <PasswordField fx:id="passwordField" prefHeight="45.0" styleClass="input-field" promptText="Şifrenizi giriniz" />
+                        <Button fx:id="togglePasswordButton" text="👁" onAction="#togglePasswordVisibility" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-text-fill: #95a5a6; -fx-font-size: 16px;" StackPane.alignment="CENTER_RIGHT">
+                            <padding><Insets right="10"/></padding>
+                        </Button>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+
+            <!-- Remember Me & Forgot Password -->
+            <HBox alignment="CENTER" spacing="20">
+               <children>
+                  <CheckBox fx:id="rememberMeCheckBox" text="Beni Hatırla" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Hyperlink fx:id="forgotPasswordLink" onAction="#handleForgotPassword" text="Şifremi Unuttum" />
+               </children>
+            </HBox>
+
+            <!-- Error/Success Message -->
+            <Label fx:id="errorLabel" alignment="CENTER" style="-fx-font-size: 12px; -fx-text-fill: #dc3545;" visible="false" wrapText="true" />
+
+            <!-- Login Button - Modern Design -->
+            <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" onAction="#handleLogin" prefHeight="55.0" 
+                    styleClass="login-button"
+                    text="🔐 Giriş Yap">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            
+            <!-- Additional Info -->
+            <HBox alignment="CENTER" spacing="5" style="-fx-padding: 10 0 0 0;">
+               <Label text="Sisteme güvenli giriş yapıyorsunuz" style="-fx-font-size: 11px; -fx-text-fill: #888; -fx-font-style: italic;"/>
+               <Label text="🔒" style="-fx-font-size: 12px;"/>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
